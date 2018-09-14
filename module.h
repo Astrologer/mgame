@@ -4,25 +4,29 @@
 #include <memory>
 #include <thread>
 #include "queue.h"
+#include "command.h"
+#include "const.h"
 
 
 class Module {
 public:
-    Module(std::shared_ptr<Queue<int>> &queue);
+    Module(std::shared_ptr<Queue<std::unique_ptr<Command>>> &queue);
+    Module();
     virtual ~Module();
     void start();
 
-    std::shared_ptr<Queue<int>> get_queue();
+    std::shared_ptr<Queue<std::unique_ptr<Command>>> get_queue();
     int get_type();
 
 protected:
-    virtual void run() = 0;
+    void main_loop();
+    virtual void run(std::unique_ptr<Command> &&cmd) = 0;
 
- protected:
-    std::shared_ptr<Queue<int>> input;
-    std::shared_ptr<Queue<int>> output;
+protected:
+    std::shared_ptr<Queue<std::unique_ptr<Command>>> input;
+    std::shared_ptr<Queue<std::unique_ptr<Command>>> output;
     std::thread worker;
-    int type;
+    ModuleType type;
 
 }; // Module
 

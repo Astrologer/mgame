@@ -2,14 +2,19 @@
 #define COMMAND_H
 
 #include <vector>
-
-using std::vector;
+#include <string>
+#include "const.h"
 
 
 class Command {
 public:
-    Comand(vector<char>);
-    vector<char> pack();
+    ModuleType dst;
+    ModuleType src;
+
+    std::string raw_command;
+    CommandId command;
+    std::vector<std::string> args;
+
 }; // Command
 
 

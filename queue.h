@@ -10,7 +10,7 @@ template<typename T>
 class Queue {
     //static_assert(std::is_base_of<Command, T>::value, "T must extend command");
 public:
-    void enqueue(const T &item);
+    void enqueue(T &&item);
     T dequeue();
 
 protected:

@@ -10,11 +10,13 @@ LIBS    := -lpthread
 
 SOURCES :=  queue.cpp \
             module.cpp \
+            router.cpp \
             terminal.cpp
 
 # MAIN_SOURCE := main.cpp
 # MAIN_SOURCE := test_queue.cpp
-MAIN_SOURCE := test_module.cpp
+# MAIN_SOURCE := test_module.cpp
+MAIN_SOURCE := test_router.cpp
 
 OBJS        := ${SOURCES:.cpp=.o}
 MAIN_OBJS   := ${MAIN_SOURCE:.cpp=.o}
