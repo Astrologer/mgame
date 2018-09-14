@@ -9,20 +9,20 @@ int main(int argc, char *argv[]) {
     Router router(5);
     std::shared_ptr<Queue<std::unique_ptr<Command>>> rt = router.get_queue();
 
-    router.registr(INPUT, w1);
+    router.registr(TERMINAL, w1);
     router.registr(PARSE, w2);
 
     std::unique_ptr<Command> cmd_inp(new Command());
     std::unique_ptr<Command> cmd_par(new Command());
     std::unique_ptr<Command> cmd_rtr(new Command());
 
-    cmd_inp.get()->dst = INPUT;
+    cmd_inp.get()->dst = TERMINAL;
     cmd_inp.get()->command = TEST;
 
     cmd_par.get()->dst = PARSE;
     cmd_par.get()->command = CMD;
 
-    cmd_rtr.get()->dst = ROUTER;
+    cmd_rtr.get()->dst = ROUTE;
     cmd_rtr.get()->command = TERM;
 
     router.start();

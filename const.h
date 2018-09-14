@@ -9,9 +9,10 @@ enum CommandId {
 };
 
 enum ModuleType {
-    INPUT,
+    SYSTEM,
+    TERMINAL,
     PARSE,
-    ROUTER
+    ROUTE
 };
 
 

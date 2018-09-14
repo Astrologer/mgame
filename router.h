@@ -11,6 +11,7 @@ class Router: public Module {
 public:
     Router(int capacity);
     void registr(int type, std::shared_ptr<Queue<std::unique_ptr<Command>>> &queue);
+    void registr(int type, std::shared_ptr<Queue<std::unique_ptr<Command>>> &&queue);
 
 protected:
    virtual void run(std::unique_ptr<Command> &&cmd);

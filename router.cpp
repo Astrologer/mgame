@@ -4,11 +4,16 @@
 
 Router::Router(int capacity) {
     queues.resize(capacity);
-    type = ROUTER;
+    type = ROUTE;
 } // Router::Router
 
 
 void Router::registr(int type, std::shared_ptr<Queue<std::unique_ptr<Command>>> &queue) {
+    queues[type] = queue;
+} // Router::registr
+
+
+void Router::registr(int type, std::shared_ptr<Queue<std::unique_ptr<Command>>> &&queue) {
     queues[type] = queue;
 } // Router::registr
 

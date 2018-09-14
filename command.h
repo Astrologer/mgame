@@ -8,13 +8,16 @@
 
 class Command {
 public:
+    static std::unique_ptr<Command> make_term(ModuleType type);
+
+public:
     ModuleType dst;
     ModuleType src;
 
     std::string raw_command;
     CommandId command;
     std::vector<std::string> args;
-
+    std::string response;
 }; // Command
 
 
